@@ -33,7 +33,7 @@
                     <div style="flex: 1; min-width: 300px;">
                         <h4>Kontaktmöglichkeiten</h4>
                         <p>
-                            <strong>Telefon:</strong> <a href="tel:----">----</a><br>
+                            <strong>Telefon:</strong> <a href="tel:0123456789">0123 / 456 789</a><br>
                             <strong>E-Mail:</strong> <a data-text-replace href="mailto:julianvollmer@live.de">julianvollmer@live.de</a><br>
                         </p>
 

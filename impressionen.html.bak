@@ -46,7 +46,7 @@
                 </div>
                 
                 <p style="margin-top: 30px; text-align: center;">
-                    Haben Sie ein Projekt für uns? <a href="termin.html" class="cta-button">Jetzt Kontakt aufnehmen</a>
+                    Haben Sie ein Projekt für uns? <a href="termin.html">Jetzt Kontakt aufnehmen!</a>
                 </p>
             </div>
         </section>

@@ -10,7 +10,7 @@
 
     <header>
         <div class="container">
-            <h1><a href="index.html">[Firmenname]</a></h1>
+            <h1><a href="index.html">Ihr Name Elektriker</a></h1>
             <nav>
                 <ul>
 					<li><a href="index.html">Startseite</a></li>
