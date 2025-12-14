@@ -33,36 +33,40 @@
 				Wir melden uns umgehend bei Ihnen zurück, um die Details zu besprechen. 
 			</p>
 
-				<form action="https://formsubmit.co/julian.voll@gmail.com" method="POST">
+			<form action="https://formsubmit.co/julian.voll@gmail.com" method="POST">
+							
+				<input type="hidden" name="_next" value="https://projekt-kurzschluss.github.io/homepage/danke.html">
+				<input type="hidden" name="_subject" value="NEUE ANFRAGE: Terminanfrage über [Firmenname]">
+				<input type="hidden" name="_honeypot" value="">
+			
+				<input type="hidden" name="_replyto" value="E-Mail-Adresse"> 
 				
-					<input type="hidden" name="_next" value="https://projekt-kurzschluss.github.io/homepage/danke.html">
-					<input type="hidden" name="_subject" value="Neue Terminanfrage über Website">
-					<input type="hidden" name="_honeypot" value="">
-				
-					<label>Name / Firma:</label>
-					<input type="text" name="name_firma" required>
-				
-					<label>E-Mail Adresse:</label>
-					<input type="email" name="email" required>
-				
-					<label>Telefon:</label>
-					<input type="text" name="telefon">
-				
-					<label>Gewünschte Leistung:</label>
-					<select name="leistung" required>
-						<option value="">-- Bitte auswählen --</option>
-						<option value="beratung">Erstberatung</option>
-						<option value="angebot">Angebot</option>
-						<option value="reparatur">Reparatur</option>
-						<option value="echeck">E-Check</option>
-						<option value="sonstiges">Sonstiges</option>
-					</select>
-				
-					<label>Beschreibung / Wunschtermin:</label>
-					<textarea name="beschreibung" rows="4" required></textarea>
-				
-					<button type="submit">Termin unverbindlich anfragen</button>
-				</form>
+				<input type="hidden" name="_autoresponse" value="Vielen Dank für Ihre Anfrage! Wir haben Ihre Nachricht erhalten und werden uns schnellstmöglich bei Ihnen melden, um die Details zu besprechen.">
+							
+				<label>Name / Firma:</label>
+				<input type="text" name="Name / Firma" required>
+							
+				<label>E-Mail Adresse:</label>
+				<input type="email" name="E-Mail-Adresse" required>
+							
+				<label>Telefon:</label>
+				<input type="text" name="Telefonnummer">
+							
+				<label>Gewünschte Leistung:</label>
+				<select name="Gewünschte Leistung" required>
+					<option value="">-- Bitte auswählen --</option>
+					<option value="Erstberatung">Erstberatung</option>
+					<option value="Angebot">Angebot</option>
+					<option value="Reparatur">Reparatur</option>
+					<option value="E-Check">E-Check</option>
+					<option value="Sonstiges">Sonstiges</option>
+				</select>
+							
+				<label>Beschreibung / Wunschtermin:</label>
+				<textarea name="Nachricht / Details" rows="4" required></textarea>
+							
+				<button type="submit">Termin unverbindlich anfragen</button>
+			</form>
 
 
             </div>
