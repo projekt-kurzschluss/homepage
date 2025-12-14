@@ -54,28 +54,54 @@
             </div>
         </section>
 
-        <section id="termin" class="form-section">
+        <section id="termin-formular" class="form-section">
             <div class="container">
-                <h3>Termin vereinbaren</h3>
-                <form action="verarbeitungsskript.php" method="POST">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
 
-                    <label for="email">E-Mail:</label>
-                    <input type="email" id="email" name="email" required>
-                    
-                    <label for="service">Gewünschte Leistung:</label>
-                    <select id="service" name="service" required>
-                        <option value="beratung">Beratungsgespräch</option>
-                        <option value="reparatur">Reparatur/Wartung</option>
-                        <option value="installation">Neuinstallation</option>
-                    </select>
+			<h3>Unverbindlich Termin oder Angebot anfragen - [Firmenname] freut sich auf Ihre Anfrage.</h3>
+			<p data-text-replace>
+				Nutzen Sie unser Formular für eine schnelle Kontaktaufnahme. 
+				Wir melden uns umgehend bei Ihnen zurück, um die Details zu besprechen. 
+			</p>
 
-                    <label for="nachricht">Nachricht / Wunschtermin:</label>
-                    <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
+				<form action="https://formsubmit.co/julianvollmer@live.de" method="POST">
+			
+					<input type="hidden" name="_next" value="https://projekt-kurzschluss.github.io/projekt_kurzschluss/danke.html">
+					
+					<input type="hidden" name="_subject" value="Neue Terminanfrage über Website">
+				
+					<div style="font-size: 14px;"> 
+						<label for="name">Name / Firma:</label>
+						<input type="text" id="name" name="Name / Firma" required style="font-size: 14px;">
+					</div>
+				
+					<div style="font-size: 14px;">
+						<label for="email">E-Mail Adresse:</label>
+						<input type="email" id="email" name="E-Mail Adresse" required style="font-size: 14px;">
+					</div>
+					
+					<div style="font-size: 14px;">
+						<label for="phone">Telefon (für Rückfragen):</label>
+						<input type="text" id="phone" name="Telefon" style="font-size: 14px;">
+					</div>
+					
+					<div style="font-size: 14px;">
+						<label for="service">Gewünschte Leistung / Thema:</label>
+						<select id="service" name="Leistung" required style="font-size: 14px;">
+							<option value="">-- Bitte auswählen --</option>
+							<option value="beratung">Erstberatung</option>
+							<option value="angebot">Angebot für Neuinstallation</option>
+							<option value="reparatur">Reparatur / Wartung</option>
+							<option value="echeck">E-Check / Prüfung</option>
+							<option value="sonstiges">Sonstiges</option>
+						</select>
+					</div>
+				
+					<label for="nachricht" style="font-size: 14px;">Beschreibung des Projekts / Wunschtermin:</label>
+					<textarea id="nachricht" name="Beschreibung/Wunschtermin" rows="4" required placeholder="Beschreiben Sie kurz Ihr Anliegen und wann wir Sie am besten erreichen können." style="font-size: 14px;"></textarea>
+				
+					<button type="submit" style="font-size: 16px;">Termin unverbindlich anfragen</button>
+				</form>
 
-                    <button type="submit">Termin unverbindlich anfragen</button>
-                </form>
             </div>
         </section>
 
