@@ -11,12 +11,15 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 0;
-    background-color: var(--background-light);
-    color: var(--text-color);
+    
+    /* DIES IST DIE LÖSUNG: Erzwingt das Anzeigen der vertikalen Scrollbar */
+    overflow-y: scroll; 
+    
+    /* Fügt den nötigen Abstand für den fixierten Footer hinzu */
+    padding-bottom: 40px; 
 }
 
 .container {
@@ -229,27 +232,66 @@ form button[type="submit"]:hover {
 }
 
 /* ========================================================= */
-/* 6. FOOTER */
+/* 6. FOOTER (FIXIERT, RESPONSIV & ZENTRALISIERT) */
 /* ========================================================= */
 
 footer {
-    padding: 20px 0;
-    margin-top: 30px;
+    /* --- FIXIERUNG --- */
+    position: fixed; /* Fixiert den Footer am Browserfenster */
+    bottom: 0;       /* Unten ausrichten */
+    left: 0;         /* Links ausrichten */
+    width: 100%;     /* Volle Breite des Viewports */
+    z-index: 1000;   /* Stellt sicher, dass er über dem Inhalt liegt */
+
+    /* --- BASIS STYLING (von Ihrer Vorlage übernommen und angepasst) --- */
+    padding: 10px 0; /* Von 20px reduziert, da fixiert */
+    margin-top: 0;   /* Entfernt, da fixiert */
     color: white;
     background-color: #333;
     text-align: center;
     font-size: 14px;
 }
 
+/* WICHTIG: Erhöht den Abstand am Ende des Body-Inhalts, 
+   damit der Footer den Text nicht verdeckt */
+body {
+    /* Passt sich der Höhe des fixierten Footers an (ca. 40px) */
+    padding-bottom: 40px; 
+}
+
+
+/* --- INHALTSANORDNUNG (Flexbox für eine Zeile) --- */
+
+/* Dies setzt voraus, dass Sie die HTML-Struktur im Footer wie besprochen angepasst haben:
+   <p class="footer-content"><span class="copyright">...</span><span class="links">...</span></p> */
+footer .container .footer-content {
+    display: flex;        /* Aktiviert das Flex-Layout */
+    flex-wrap: nowrap;    /* Verhindert Umbrüche auf Desktops/Tablets */
+    justify-content: center; /* Zentriert den Inhalt (Copyright und Links) */
+    align-items: center;  /* Vertikale Zentrierung */
+    
+    max-width: 1000px; /* Optional: Schmaler machen (zentraler Inhalt wird begrenzt) */
+    margin: 0 auto;    /* Zentriert den Container innerhalb der 100%-Footer-Fläche */
+}
+
+footer .footer-content span {
+    white-space: nowrap; /* Stellt sicher, dass Copyright/Links nicht umbrechen */
+}
+
+/* --- LINKS STYLING (von Ihrer Vorlage übernommen) --- */
+
 footer a {
     color: var(--accent-color);
     text-decoration: none;
     transition: color 0.3s;
+    white-space: nowrap; 
+    padding: 0 5px; /* Abstand zu den Trennern */
 }
 
 footer a:hover {
     color: white;
 }
+
 
 /* ========================================================= */
 /* 7. MEDIA QUERIES (Mobile Anpassungen) */
@@ -257,39 +299,36 @@ footer a:hover {
 
 @media (max-width: 768px) {
     
+    /* Allgemeine Anpassungen beibehalten */
     .container {
-        width: 95%; /* Etwas mehr Platz auf sehr kleinen Bildschirmen */
+        width: 95%;
     }
 
-    /* 1. Header und Navigation */
+    /* 1. Header und Navigation (Ihre ursprünglichen Regeln beibehalten) */
     header {
-        position: static; /* Auf Handys fixierten Header oft entfernen oder anders gestalten */
-        /* Wir setzen ihn hier auf static, damit er scrollt und keinen Platz verdeckt. 
-           Wenn er fixiert bleiben soll, dann ist der nächste Schritt wichtig! */
+        position: static; 
         min-height: auto;
         padding: 10px 0;
     }
     
-    /* WICHTIG: Den großen Margin-top auf der Hauptseite entfernen, da der Header nicht mehr fixiert ist */
     main {
         margin-top: 0; 
         padding-top: 0;
     }
 
     header h1, header nav {
-        float: none; /* Elemente nicht mehr nebeneinander (Float) */
+        float: none;
         text-align: center;
         width: 100%;
     }
 
-    /* Navigationsliste (Menüpunkte untereinander) */
     header nav ul {
         display: block;
         padding: 5px 0 0 0;
     }
     
     header li {
-        display: block; /* Menüpunkte untereinander anzeigen */
+        display: block;
         padding: 5px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
@@ -304,7 +343,6 @@ footer a:hover {
     }
 
     /* 3. Formular */
-    /* Formular-Elemente füllen die ganze Breite, was auf Handys gut ist */
     form button[type="submit"] {
         padding: 15px 10px;
         font-size: 16px;
@@ -312,12 +350,30 @@ footer a:hover {
 
     /* 4. Kontaktseite/Flexbox */
     div[style*="flex: 1"] {
-        min-width: 100%; /* Sektionen brechen um */
+        min-width: 100%;
     }
 
     /* 5. Galerie: Raster anpassen, falls nötig */
     .gallery {
-         /* Wenn wir 1 Spalte pro Reihe wollen, ändern wir grid-template-columns: */
-         /* grid-template-columns: 1fr; */
+        /* grid-template-columns: 1fr; */
+    }
+
+    /* --- NEUE MOBILE FOOTER ANPASSUNGEN (Für sehr schmale Ansicht) --- */
+    
+    footer {
+        padding: 8px 0; /* Etwas weniger Padding auf Handys */
+        font-size: 12px;
+    }
+    
+    /* Wenn der Platz sehr knapp wird, Stapeln der Elemente erlauben */
+    footer .container .footer-content {
+        flex-wrap: wrap; 
+        flex-direction: column; /* Elemente untereinander stapeln */
+        line-height: 1.5;
+    }
+    
+    /* Erhöht den Body-Abstand, da der gestapelte Footer höher ist */
+    body {
+        padding-bottom: 70px; 
     }
 }
