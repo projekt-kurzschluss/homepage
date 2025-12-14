@@ -250,3 +250,74 @@ footer a {
 footer a:hover {
     color: white;
 }
+
+/* ========================================================= */
+/* 7. MEDIA QUERIES (Mobile Anpassungen) */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+    
+    .container {
+        width: 95%; /* Etwas mehr Platz auf sehr kleinen Bildschirmen */
+    }
+
+    /* 1. Header und Navigation */
+    header {
+        position: static; /* Auf Handys fixierten Header oft entfernen oder anders gestalten */
+        /* Wir setzen ihn hier auf static, damit er scrollt und keinen Platz verdeckt. 
+           Wenn er fixiert bleiben soll, dann ist der nächste Schritt wichtig! */
+        min-height: auto;
+        padding: 10px 0;
+    }
+    
+    /* WICHTIG: Den großen Margin-top auf der Hauptseite entfernen, da der Header nicht mehr fixiert ist */
+    main {
+        margin-top: 0; 
+        padding-top: 0;
+    }
+
+    header h1, header nav {
+        float: none; /* Elemente nicht mehr nebeneinander (Float) */
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Navigationsliste (Menüpunkte untereinander) */
+    header nav ul {
+        display: block;
+        padding: 5px 0 0 0;
+    }
+    
+    header li {
+        display: block; /* Menüpunkte untereinander anzeigen */
+        padding: 5px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* 2. Hero-Sektion */
+    .hero-section {
+        padding: 60px 0;
+    }
+
+    .hero-section h2 {
+        font-size: 24px;
+    }
+
+    /* 3. Formular */
+    /* Formular-Elemente füllen die ganze Breite, was auf Handys gut ist */
+    form button[type="submit"] {
+        padding: 15px 10px;
+        font-size: 16px;
+    }
+
+    /* 4. Kontaktseite/Flexbox */
+    div[style*="flex: 1"] {
+        min-width: 100%; /* Sektionen brechen um */
+    }
+
+    /* 5. Galerie: Raster anpassen, falls nötig */
+    .gallery {
+         /* Wenn wir 1 Spalte pro Reihe wollen, ändern wir grid-template-columns: */
+         /* grid-template-columns: 1fr; */
+    }
+}
