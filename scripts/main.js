@@ -1,28 +1,33 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    console.log('Die Seite wurde vollständig geladen.');
+// Zentrale JavaScript-Datei für die Website-Funktionalität
 
-    // Beispiel für ein einfaches Formular-Feedback (da keine echte E-Mail gesendet werden kann)
-    const form = document.querySelector('#termin form');
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            // Verhindert das Standard-Senden des Formulars
-            e.preventDefault(); 
-            
-            // In einer echten Umgebung würde hier der Server-Code laufen.
-            alert('Ihre Terminanfrage wurde lokal gespeichert. Da dies eine lokale Datei ist, wurde KEINE E-Mail gesendet. Bitte kopieren Sie die Daten und senden Sie sie manuell an info@ihrefirma.de.');
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // =========================================================
+    // 1. ZENTRALE VARIABLEN-DEFINITION (HIER ANPASSEN!)
+    // =========================================================
+    const FIRMENNAME = "Test"; // <--- HIER IHREN FIRMENNAMEN EINTRAGEN
 
-            // Hier könnte man das Formular nach der Anzeige der Nachricht zurücksetzen
-            // form.reset(); 
-        });
-    }
-
-    // Beispiel: Animation für die Navigationslinks
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            // Sanftes Scrollen zu den Sektionen
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+    // =========================================================
+    // 2. AUTOMATISCHE TEXT-ERSETZUNG
+    // =========================================================
+    
+    // Sucht alle Elemente mit dem Attribut 'data-text-replace' 
+    // und alle Elemente mit der Klasse 'firma-name'
+    const elementsToReplace = document.querySelectorAll('[data-text-replace], .firma-name');
+    
+    elementsToReplace.forEach(element => {
+        // Der Platzhalter, der in allen HTML-Dateien verwendet wird
+        const placeholder = '[Firmenname]';
+        
+        // Prüft, ob der Platzhalter im Textinhalt des Elements vorkommt
+        if (element.textContent.includes(placeholder)) {
+            // Ersetzt den Platzhalter durch den zentral definierten FIRMENNAMEN
+            element.textContent = element.textContent.replace(placeholder, FIRMENNAME);
+        }
     });
+
+    // Bonus: Stellt sicher, dass auch der <title>-Tag im Browser ersetzt wird
+    if (document.title.includes('Ihr Name Elektriker')) {
+        document.title = document.title.replace('Ihr Name Elektriker', FIRMENNAME);
+    }
 });
