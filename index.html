@@ -9,28 +9,28 @@
 <body>
 
     <header>
-    <div class="container">
-        <h1><a href="index.html" class="firma-name">[Firmenname]</a></h1> 
-        <nav>
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="leistungen.html">Leistungen</a></li>
-                <li><a href="impressionen.html">Impressionen</a></li>
-                <li><a href="termin.html">Termin vereinbaren</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-            </ul>
-        </nav>
-    </div>
-	</header>
+        <div class="container">
+            <h1><a href="index.html" class="firma-name">[Firmenname]</a></h1> 
+            <nav>
+                <ul>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="leistungen.html">Leistungen</a></li>
+                    <li><a href="impressionen.html">Impressionen</a></li>
+                    <li><a href="termin.html">Termin vereinbaren</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <main>
-		<section id="hero" class="hero-section">
-			<div class="container">
-				<h2>Ihr zuverlässiger Partner für Elektrotechnik</h2>
-				<p>Von der Neuinstallation bis zur Wartung – sicher, professionell und schnell.</p>
-				<a href="termin.html" class="cta-button">Jetzt Termin vereinbaren</a>
-			</div>
-		</section>
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <h2>Ihr zuverlässiger Partner für Elektrotechnik</h2>
+                <p>Von der Neuinstallation bis zur Wartung – sicher, professionell und schnell.</p>
+                <a href="termin.html" class="cta-button">Jetzt Termin vereinbaren</a>
+            </div>
+        </section>
 
         <section id="leistungen" class="content-section">
             <div class="container">
@@ -44,79 +44,24 @@
             </div>
         </section>
 
-        <section id="impressionen" class="gallery-section">
-            <div class="container">
-                <h3>Impressionen unserer Arbeit</h3>
-                <div class="gallery">
-                    <img src="assets/arbeiten/installation-1.jpg" alt="Installation">
-                    <img src="assets/arbeiten/schaltkasten-2.jpg" alt="Schaltkasten">
-                    </div>
-            </div>
-        </section>
-
-        <section id="termin-formular" class="form-section">
-            <div class="container">
-
-			<h3>Unverbindlich Termin oder Angebot anfragen - [Firmenname] freut sich auf Ihre Anfrage.</h3>
-			<p data-text-replace>
-				Nutzen Sie unser Formular für eine schnelle Kontaktaufnahme. 
-				Wir melden uns umgehend bei Ihnen zurück, um die Details zu besprechen. 
-			</p>
-
-			<form action="https://formsubmit.co/julian.voll@gmail.com" method="POST">
-							
-				<input type="hidden" name="_next" value="https://projekt-kurzschluss.github.io/homepage/danke.html">
-				<input type="hidden" name="_subject" value="NEUE ANFRAGE: Terminanfrage über [Firmenname]">
-				<input type="hidden" name="_honeypot" value="">
-			
-				<input type="hidden" name="_replyto" value="E-Mail-Adresse"> 
-				
-				<input type="hidden" name="_autoresponse" value="Vielen Dank für Ihre Anfrage! Wir haben Ihre Nachricht erhalten und werden uns schnellstmöglich bei Ihnen melden, um die Details zu besprechen.">
-							
-				<label>Name / Firma:</label>
-				<input type="text" name="Name / Firma" required>
-							
-				<label>E-Mail Adresse:</label>
-				<input type="email" name="E-Mail-Adresse" required>
-							
-				<label>Telefon:</label>
-				<input type="text" name="Telefonnummer">
-							
-				<label>Gewünschte Leistung:</label>
-				<select name="Gewünschte Leistung" required>
-					<option value="">-- Bitte auswählen --</option>
-					<option value="Erstberatung">Erstberatung</option>
-					<option value="Angebot">Angebot</option>
-					<option value="Reparatur">Reparatur</option>
-					<option value="E-Check">E-Check</option>
-					<option value="Sonstiges">Sonstiges</option>
-				</select>
-							
-				<label>Beschreibung / Wunschtermin:</label>
-				<textarea name="Nachricht / Details" rows="3" required></textarea>
-							
-				<button type="submit">Termin unverbindlich anfragen</button>
-			</form>
-
-            </div>
-        </section>
-
-        <section id="kontakt" class="contact-section">
-            <div class="container">
-                <h3>Kontakt</h3>
-                <p>Sie können uns auch direkt per E-Mail kontaktieren:</p>
-                <p>E-Mail: <a href="mailto:julianvollmer@live.de">julianvollmer@live.de</a></p>
-                <p>Telefon: 0123 / 456 789</p>
-            </div>
-        </section>
     </main>
 
+	<div class="fixed-contact-bar">
+    <a href="mailto:julianvollmer@live.de" class="contact-btn mail-btn" title="E-Mail schreiben">
+        <span>✉</span> E-Mail
+    </a>
+    <a href="tel:+49123456789" class="contact-btn phone-btn" title="Anrufen">
+        <span>📞</span> Anruf
+    </a>
+	</div>
+	
     <footer>
         <div class="container">
-            <p <adata-text-replace>&copy; 2025 [Firmenname] | </a><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+            <p>&copy; 2025 [Firmenname] | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
         </div>
     </footer>
 
     <script src="scripts/main.js"></script>
+	
 </body>
 </html>
