@@ -31,14 +31,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // 3. AUTOMATISCHE NAVIGATIONSMARKIERUNG (NEU)
     // =========================================================
 
-    // Ermittelt den aktuellen Dateinamen und dekodiert Sonderzeichen/Leerzeichen
-    const currentPath = decodeURIComponent(window.location.pathname.split("/").pop());
+    // Ermittelt den aktuellen Dateinamen (z.B. "termin.html")
+    const currentPath = window.location.pathname.split("/").pop();
 
     // Alle Links in der Navigation suchen
     const navLinks = document.querySelectorAll("header nav ul li a");
 
     navLinks.forEach(link => {
-        // Holt den href-Wert des Links (z.B. "Unsere Arbeit.html")
+        // Holt den href-Wert des Links (z.B. "index.html")
         const linkPath = link.getAttribute("href");
 
         // Wenn die aktuelle Seite mit dem Link übereinstimmt:
