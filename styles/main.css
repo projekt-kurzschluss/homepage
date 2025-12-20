@@ -355,22 +355,38 @@ footer a {
     header {
         position: static; 
         min-height: auto;
+        padding: 15px 0; /* Etwas Platz für Logo und Menü */
     }
     
+    header .container {
+        flex-direction: column; /* Logo und Menü untereinander */
+        height: auto;
+    }
+
     main {
         margin-top: 0; 
     }
 
-    header h1, header nav {
-        float: none;
-        text-align: center;
+    header nav {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    header ul {
+        flex-direction: column; /* Menüpunkte untereinander statt nebeneinander */
         width: 100%;
     }
 
     header li {
-        display: block;
-        padding: 8px 0;
+        width: 100%;
+        justify-content: center; /* Text zentrieren */
+        padding: 10px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header a.active {
+        border-bottom: none; /* Unterstrich mobil entfernen oder anpassen */
+        color: var(--accent-color);
     }
 
     body {
@@ -378,8 +394,24 @@ footer a {
     }
 }
 
-/* Mobile Optimierung Formular: Untereinander, wenn der Platz knapp wird */
+/* Mobile Optimierung Formular */
 @media (max-width: 600px) {
+    #termin-formular .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    #termin-formular label {
+        flex: none;
+        width: 100%;
+    }
+    #termin-formular .button-container {
+        margin-left: 0;
+    }
+    #termin-formular button[type="submit"] {
+        width: 100%;
+    }
+}
     #termin-formular .form-group {
         flex-direction: column;
         align-items: flex-start;
