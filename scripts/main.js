@@ -5,27 +5,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // =========================================================
     // 1. ZENTRALE VARIABLEN-DEFINITION (HIER ANPASSEN!)
     // =========================================================
-    const FIRMENNAME = "AJV Elektro GmbH"; // <--- HIER IHREN FIRMENNAMEN EINTRAGEN
-
-    // =========================================================
-    // 2. AUTOMATISCHE TEXT-ERSETZUNG
-    // =========================================================
-    
-    // Sucht alle Elemente mit dem Attribut 'data-text-replace' 
-    // und alle Elemente mit der Klasse 'firma-name'
-    const elementsToReplace = document.querySelectorAll('[data-text-replace], .firma-name');
-    
-    elementsToReplace.forEach(element => {
-        const placeholder = '[Firmenname]';
-        if (element.textContent.includes(placeholder)) {
-            element.textContent = element.textContent.replace(placeholder, FIRMENNAME);
-        }
-    });
-
-    // Bonus: Stellt sicher, dass auch der <title>-Tag im Browser ersetzt wird
-    if (document.title.includes('[Firmenname]')) {
-        document.title = document.title.replace('[Firmenname]', FIRMENNAME);
-    }
+    // ... (Teil 1 bleibt gleich)
+	const FIRMENNAME = "AJV Elektro GmbH"; 
+	
+	// =========================================================
+	// 2. AUTOMATISCHE TEXT-ERSETZUNG (VERBESSERT)
+	// =========================================================
+	
+	// Wir erweitern die Suche auf Footer und alle Überschriften, um sicherzugehen
+	const elementsToReplace = document.querySelectorAll('[data-text-replace], .firma-name, h3, footer p');
+	
+	elementsToReplace.forEach(element => {
+		const placeholder = '[Firmenname]';
+		if (element.textContent.includes(placeholder)) {
+			// replaceAll sorgt dafür, dass auch mehrere [Firmenname] im selben Text getauscht werden
+			element.innerHTML = element.innerHTML.replaceAll(placeholder, FIRMENNAME);
+		}
+	});
+	
+	// Bonus: Browsertab
+	if (document.title.includes('[Firmenname]')) {
+		document.title = document.title.replaceAll('[Firmenname]', FIRMENNAME);
+	}
 
     // =========================================================
     // 3. AUTOMATISCHE NAVIGATIONSMARKIERUNG (NEU)
