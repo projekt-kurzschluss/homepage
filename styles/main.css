@@ -351,23 +351,29 @@ footer a {
 /* NEU: STYLES FÜR DEN BURGER-BUTTON (ÜBER DEN MEDIA QUERIES) */
 /* ========================================================= */
 
+/* 1. Sicherstellen, dass der Button sichtbar ist */
 .menu-toggle {
-    display: none; /* Auf Desktop weiterhin versteckt */
+    display: none; /* Desktop: aus */
     background: transparent;
     border: none;
     cursor: pointer;
-    align-items: center; /* Zentriert Text und Striche vertikal */
-    gap: 10px; /* Abstand zwischen Wort "Menü" und den Strichen */
-    padding: 5px;
+    align-items: center;
+    gap: 10px;
+    z-index: 1001; /* Immer über anderen Elementen */
+    outline: none;
+    padding: 10px; /* Größere Klickfläche */
 }
 
+/* 2. Den Text erzwingen */
 .menu-text {
-    color: white;
+    color: #ffffff !important; /* Weiß erzwingen */
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
+    display: inline-block;
 }
 
+/* 3. Die Balken sichtbar machen */
 .burger-icon {
     display: flex;
     flex-direction: column;
@@ -377,12 +383,13 @@ footer a {
 }
 
 .menu-toggle .bar {
+    display: block; /* Wichtig! */
     height: 3px;
     width: 100%;
-    background-color: white;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+    background-color: #ffffff !important; /* Weiß erzwingen */
+    border-radius: 2px;
 }
+
 
 /* ========================================================= */
 /* 8. MEDIA QUERIES (ANPASSUNG FÜR TABLET/MOBILE) */
