@@ -52,3 +52,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mainNav = document.getElementById('main-nav');
+
+    menuBtn.addEventListener('click', () => {
+        // Schaltet die Klasse 'active' am Menü und am Button um
+        mainNav.classList.toggle('active');
+        menuBtn.classList.toggle('active');
+    });
+
+    // Optional: Menü schließen, wenn man einen Link klickt
+    const navLinks = document.querySelectorAll('#main-nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            menuBtn.classList.remove('active');
+        });
+    });
+});

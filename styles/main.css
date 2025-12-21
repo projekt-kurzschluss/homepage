@@ -348,54 +348,107 @@ footer a {
 }
 
 /* ========================================================= */
-/* 8. MEDIA QUERIES */
+/* NEU: STYLES FÜR DEN BURGER-BUTTON (ÜBER DEN MEDIA QUERIES) */
 /* ========================================================= */
 
-@media (max-width: 768px) {
+.menu-toggle {
+    display: none; /* Auf Desktop versteckt */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* ========================================================= */
+/* 8. MEDIA QUERIES (ANPASSUNG FÜR TABLET/MOBILE) */
+/* ========================================================= */
+
+@media (max-width: 600px) {
+    /* Header fixiert lassen, aber Container anpassen */
     header {
-        position: static; 
-        min-height: auto;
-        padding: 15px 0;
+        position: fixed;
+        min-height: 70px;
+        padding: 0;
     }
-    
+
     header .container {
-        flex-direction: column;
-        height: auto;
+        flex-direction: row; /* Logo und Burger nebeneinander */
+        justify-content: space-between;
+        padding: 0 15px;
+        height: 70px;
     }
 
-    main {
-        margin-top: 0; 
+    /* Burger Button anzeigen */
+    .menu-toggle {
+        display: flex;
+        z-index: 1001;
     }
 
+    /* Navigation als Dropdown-Panel */
     header nav {
+        display: none; /* Standardmäßig ausblenden */
+        position: absolute;
+        top: 70px; /* Direkt unter dem Header */
+        left: 0;
         width: 100%;
-        margin-top: 15px;
+        background: var(--primary-color);
+        flex-direction: column;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        margin-top: 0;
+    }
+
+    /* Wenn das Menü aktiv ist (wird per JS gesteuert) */
+    header nav.active {
+        display: block;
     }
 
     header ul {
         flex-direction: column;
         width: 100%;
-        padding: 0; /* Stellt sicher, dass kein Standard-Padding stört */
     }
 
     header li {
         width: 100%;
-        justify-content: center;
-        padding: 10px 0;
+        padding: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header a {
+        display: block;
+        padding: 20px;
+        text-align: center;
+        width: 100%;
     }
 
     header a.active {
         border-bottom: none;
-        color: var(--accent-color);
+        background: rgba(255, 255, 255, 0.1);
     }
 
-    body {
-        padding-bottom: 100px;
+    /* Animation für den Burger-Button (X-Form bei aktiv) */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 }
 
-/* Mobile Optimierung Formular: Untereinander bei schmalen Displays */
+/* Mobile Optimierung Formular bleibt wie von dir definiert */
 @media (max-width: 600px) {
     #termin-formular .form-group {
         flex-direction: column;
