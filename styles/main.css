@@ -388,7 +388,6 @@ footer a {
     border-radius: 2px;
 }
 
-
 /* ========================================================= */
 /* 8. MEDIA QUERIES (ANPASSUNG FÜR TABLET/MOBILE) */
 /* ========================================================= */
@@ -411,6 +410,7 @@ footer a {
     /* Burger Button anzeigen */
     .menu-toggle {
         display: flex;
+        z-index: 1001;
     }
 
     /* Navigation als Dropdown-Panel */
@@ -447,13 +447,17 @@ footer a {
         padding: 20px;
         text-align: center;
         width: 100%;
+        box-sizing: border-box; /* Verhindert Größenänderung durch Padding */
+        border-bottom: none; /* Desktop-Rahmen entfernen */
     }
 
     header a.active {
-        border-bottom: none !important; /* Kein Rahmen im Dropdown */
-        background-color: rgba(255, 255, 255, 0.1); /* Stattdessen leichte Hintergrundfarbe */
+        border-bottom: none !important; /* Kein Rahmen, der das Menü verschiebt */
+        font-weight: normal !important; /* Verhindert Breitenänderung durch Fettdruck */
+        background-color: rgba(255, 255, 255, 0.1); /* Optisches Feedback per Hintergrund */
+        color: var(--accent-color) !important;
     }
-	
+    
     /* Animation für den Burger-Button (X-Form bei aktiv) */
     .menu-toggle.active .bar:nth-child(1) {
         transform: translateY(7.5px) rotate(45deg);
@@ -466,7 +470,7 @@ footer a {
     }
 }
 
-/* Mobile Optimierung Formular bleibt wie von dir definiert */
+/* Mobile Optimierung Formular */
 @media (max-width: 600px) {
     #termin-formular .form-group {
         flex-direction: column;
