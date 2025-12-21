@@ -352,14 +352,28 @@ footer a {
 /* ========================================================= */
 
 .menu-toggle {
-    display: none; /* Auf Desktop versteckt */
+    display: none; /* Auf Desktop weiterhin versteckt */
     background: transparent;
     border: none;
     cursor: pointer;
+    align-items: center; /* Zentriert Text und Striche vertikal */
+    gap: 10px; /* Abstand zwischen Wort "Menü" und den Strichen */
+    padding: 5px;
+}
+
+.menu-text {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.burger-icon {
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px;
-    height: 21px;
+    width: 25px;
+    height: 18px;
 }
 
 .menu-toggle .bar {
@@ -374,7 +388,7 @@ footer a {
 /* 8. MEDIA QUERIES (ANPASSUNG FÜR TABLET/MOBILE) */
 /* ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     /* Header fixiert lassen, aber Container anpassen */
     header {
         position: fixed;
@@ -392,7 +406,6 @@ footer a {
     /* Burger Button anzeigen */
     .menu-toggle {
         display: flex;
-        z-index: 1001;
     }
 
     /* Navigation als Dropdown-Panel */
@@ -438,13 +451,13 @@ footer a {
 
     /* Animation für den Burger-Button (X-Form bei aktiv) */
     .menu-toggle.active .bar:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
+        transform: translateY(7.5px) rotate(45deg);
     }
     .menu-toggle.active .bar:nth-child(2) {
         opacity: 0;
     }
     .menu-toggle.active .bar:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
+        transform: translateY(-7.5px) rotate(-45deg);
     }
 }
 
